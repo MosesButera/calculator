@@ -79,6 +79,18 @@ arithmeticButtons.forEach(button => {
             number1 = inputDisplay.value;
             operator = event.target.className;
         }
+        else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
+            //Second operator is clicked, number2 has been entered and once
+            //saved we are ready to operate, store result and display it.
+            number2 = inputDisplay.value;
+            let number1Int = parseFloat(number1);
+            let number2Int = parseFloat(number2);
+            result = operate(operator, number1Int, number2Int);
+            inputDisplay.value = result;
+            number1 = result;
+            operator = event.target.className;
+            number2 = ""         
+        }
 
 
 
