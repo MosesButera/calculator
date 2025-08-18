@@ -46,12 +46,18 @@ digitButtons.forEach(button => {
 function onDigitClick(event){
 
     if (operator === "" && result === ""){
+        //building number1 from scratch. 
         const clickedButton = event.target.textContent; 
         inputDisplay.value += clickedButton;
     }
     else if (operator = "" && result !== ""){
+        //user pressed digit after equals, start fresh number1.
         number1 = "";
         result = "";
+        inputDisplay.value = clickedButton;
+    }
+    else if((operator !== "") && (number1 !== "") && (inputDisplay.value === "")){
+        //first digit of number2 replaces empty display.
         inputDisplay.value = clickedButton;
     }
 
