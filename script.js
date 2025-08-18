@@ -73,7 +73,13 @@ const arithmeticButtons = document.querySelectorAll(".arithmetic");
 
 arithmeticButtons.forEach(button => {
     button.addEventListener("click", function(event){
-        
+
+        if (number1 === "" && result === ""){
+            //First operator clicked after entering first number
+            number1 = inputDisplay.value;
+            operator = event.target.className;
+        }
+
 
 
     });
