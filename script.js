@@ -92,7 +92,16 @@ arithmeticButtons.forEach(button => {
             number2 = ""         
         }
 
-
+        else if (result !== "" && inputDisplay.value === ""){
+            //user is chaining operators without typing new number.
+            number1 = result;
+            operator = event.target.className;
+        }
+        else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
+            //user clicked operator multiple time without entering number2
+            //update to use the most recent operator only
+            operator = event.target.className;
+        }
 
     });
 });
