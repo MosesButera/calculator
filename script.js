@@ -66,4 +66,15 @@ function onDigitClick(event){
     }
 }
 
+//Possible conditions when an operator button is clicked. (+, -, *, /)
+//onOperatorClick()
 
+const arithmeticButtons = document.querySelectorAll(".arithmetic"); 
+
+arithmeticButtons.forEach(button => {
+    button.addEventListener("click", function(event){
+        
+
+
+    });
+});
