@@ -102,6 +102,11 @@ arithmeticButtons.forEach(button => {
             //update to use the most recent operator only
             operator = event.target.className;
         }
-
     });
 });
+
+// When equals is clicked. OnEqualsClick ()
+
+const equals = document.querySelector(".equals");
+equals.addEventListener("click", OnEqualsClick ())
+
