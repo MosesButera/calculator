@@ -110,3 +110,15 @@ arithmeticButtons.forEach(button => {
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", OnEqualsClick ())
 
+function OnEqualsClick (){
+    If ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
+        number2 = inputDisplay.value;
+        let number1Int = parseFloat(number1);
+        let number2Int = parseFloat(number2);
+        result = (operator, number1Int, number2Int);
+        inputDisplay.value = result;
+        number1 = result;
+        number2 = "";
+        operator = "";
+    }
+}
