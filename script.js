@@ -60,8 +60,10 @@ function onDigitClick(event){
         //first digit of number2 replaces empty display.
         inputDisplay.value = clickedButton;
     }
-
-
+    else if((operator !== "") && (number1 !== "") && inputDisplay.value !== ""){
+        //Already typing number2, keep appending digits to inputDisplay.
+        inputDisplay.value += clickedButton;
+    }
 }
 
 
