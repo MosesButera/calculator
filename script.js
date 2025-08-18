@@ -43,4 +43,15 @@ digitButtons.forEach(button => {
 });
 
 
+function onDigitClick(event){
+
+    if (operator === "" && result === ""){
+
+        const clickedButton = event.target.textContent; 
+        inputDisplay.value += clickedButton;
+    }
+    
+
+}
+
 
