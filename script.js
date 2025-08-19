@@ -1,17 +1,17 @@
 function add(x, y){
-    return x + y;
+    return (x + y).toFixed(2);
 }
 
 function subtract(x, y){
-    return x - y;
+    return (x - y).toFixed(2);
 }
 
 function multiply(x, y){
-    return x * y;
+    return (x * y).toFixed(2);
 }
 
 function divide(x, y){
-    return x / y;
+    return (x / y).toFixed(2);
 }
 
 function operate(operator, number1, number2){
@@ -60,7 +60,8 @@ function onDigitClick(event){
         console.log(`result ${result}`);
 
     }
-    else if((operator !== "") && (number1 !== "") && (inputDisplay.value === String(number1))){
+    else if((operator !== "") && (number1 !== "") && 
+        (inputDisplay.value === String(number1))){
         //first digit of number2 replaces empty display.
         
         inputDisplay.value = clickedButton;
