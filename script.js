@@ -48,7 +48,7 @@ function onDigitClick(event){
     if (operator === "" && result === ""){
         //building number1 from scratch. 
         inputDisplay.value += clickedButton;
-        console.log(`user building number1 from scratch ${inputDisplay.value}`);
+        // console.log(`user building number1 from scratch ${inputDisplay.value}`);
     }
     else if (operator === "" && result !== ""){
         //user pressed digit after equals, start fresh number1.
@@ -60,17 +60,17 @@ function onDigitClick(event){
         console.log(`result ${result}`);
 
     }
-    else if((operator !== "") && (number1 !== "") && (inputDisplay.value === number1)){
+    else if((operator !== "") && (number1 !== "") && (inputDisplay.value === String(number1))){
         //first digit of number2 replaces empty display.
         
         inputDisplay.value = clickedButton;
-        console.log(`first digit of number2 replaces empty display.`);
-        console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}`);
+        // console.log(`first digit of number2 replaces empty display.`);
+        // console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}`);
     }
     else if((operator !== "") && (number1 !== "") && inputDisplay.value !== ""){
         //Already typing number2, keep appending digits to inputDisplay.
         inputDisplay.value += clickedButton;
-        console.log(`Already typing number2, keep appending digits to inputDisplay. number2: ${number2}`);
+        // console.log(`Already typing number2, keep appending digits to inputDisplay. number2: ${number2}`);
     }
 }
 
@@ -87,6 +87,7 @@ arithmeticButtons.forEach(button => {
             number1 = inputDisplay.value;
             operator = event.target.className;
             // inputDisplay.value = "";
+            console.log(`First operator clicked after entering first number. number1: ${number1}`)
             
         }
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
@@ -100,10 +101,11 @@ arithmeticButtons.forEach(button => {
             number1 = result;
             operator = event.target.className;
             number2 = ""         
-        }
+            console.log(`second operator is clicked, number2 has been entered we are ready to operate. number1:${number1}, number2: ${number2}`)
+        }   
 
         else if (result !== "" && inputDisplay.value === ""){
-            //user is chaining operators without typing new number.
+            //result exists from a previous calculation user is chaining operators without typing new number.
             number1 = result;
             operator = event.target.className;
             result = "";
