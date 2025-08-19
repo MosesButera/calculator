@@ -122,7 +122,7 @@ arithmeticButtons.forEach(button => {
 // When equals is clicked. OnEqualsClick ()
 
 const equals = document.querySelector(".equals");
-equals.addEventListener("click", onEqualsClick)
+equals.addEventListener("click", onEqualsClick);
 
 function onEqualsClick (){
     if((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
@@ -136,6 +136,16 @@ function onEqualsClick (){
         operator = "";
     }
 };
+
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", function(){
+    number1 = "";
+    number2 = "";
+    result = "";
+    operator = "";
+    inputDisplay.value = "";
+    console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}, result: ${result}, inputDisplay: ${inputDisplay.value}`);
+});
 
 
 
