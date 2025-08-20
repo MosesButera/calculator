@@ -125,11 +125,24 @@ const equals = document.querySelector(".equals");
 equals.addEventListener("click", onEqualsClick);
 
 function onEqualsClick (){
-    if((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
+
+    if (inputDisplay.value === "0"){
+        //Division by zero
+        inputDisplay.value = "ERROR";
+        return; //exit immediately, skip the rest of the function.
+    }
+
+    else if((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
         number2 = inputDisplay.value;
         let number1Int = parseFloat(number1);
         let number2Int = parseFloat(number2);
+
+        if (operator === "divide arithmetic" && number2Int === 0){
+            inputDisplay.value = "ERROR";
+            return; //exit immediately, skip the rest of the function.
+        }
         result = operate(operator, number1Int, number2Int);
+        console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}, result: ${result}, inputDisplay: ${inputDisplay.value}`);
         inputDisplay.value = result;
         number1 = result;
         number2 = "";
