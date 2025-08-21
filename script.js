@@ -128,11 +128,16 @@ arithmeticButtons.forEach(button => {
             justClickedOperator = true;  // mark state again 
             console.log(`You clicked operator: ${operator} result is :${result}`);
         }
-        else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
-            //user clicked operator multiple time without entering number2
-            //update to use the most recent operator only
+
+        else if(justClickedOperator){
+            //user clicked multiple operator just update operator
             operator = event.target.className;
         }
+        // else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
+        //     //user clicked operator multiple time without entering number2
+        //     //update to use the most recent operator only
+        //     operator = event.target.className;
+        // }
 
     });
 });
