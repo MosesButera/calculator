@@ -101,6 +101,7 @@ arithmeticButtons.forEach(button => {
             number1 = inputDisplay.value;
             operator = event.target.className;
             // inputDisplay.value = "";
+            justClickedOperator = true;  //mark state
             console.log(`First operator clicked ${operator}after entering first number. number1: ${number1}`)
             
         }
