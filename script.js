@@ -62,19 +62,30 @@ function onDigitClick(event){
         console.log(`result ${result}`);
 
     }
-    else if((operator !== "") && (number1 !== "") && 
-        (inputDisplay.value === String(number1))){
-        //first digit of number2 replaces empty display.
-        
+
+    else if (justClickedOperator){
+        //overwrite display because operator was just clicked
         inputDisplay.value = clickedButton;
-        // console.log(`first digit of number2 replaces empty display.`);
-        // console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}`);
+        justClickedOperator = false; //reset flag
     }
-    else if((operator !== "") && (number1 !== "") && inputDisplay.value !== ""){
-        //Already typing number2, keep appending digits to inputDisplay.
+    else {
+        //normal case: typing number2
         inputDisplay.value += clickedButton;
-        // console.log(`Already typing number2, keep appending digits to inputDisplay. number2: ${number2}`);
     }
+
+    // else if((operator !== "") && (number1 !== "") && 
+    //     (inputDisplay.value === String(number1))){
+    //     //first digit of number2 replaces empty display.
+        
+    //     inputDisplay.value = clickedButton;
+    //     // console.log(`first digit of number2 replaces empty display.`);
+    //     // console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}`);
+    // }
+    // else if((operator !== "") && (number1 !== "") && inputDisplay.value !== ""){
+    //     //Already typing number2, keep appending digits to inputDisplay.
+    //     inputDisplay.value += clickedButton;
+    //     // console.log(`Already typing number2, keep appending digits to inputDisplay. number2: ${number2}`);
+    // }
 }
 
 //Possible conditions when an operator button is clicked. (+, -, *, /)
