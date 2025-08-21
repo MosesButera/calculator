@@ -36,6 +36,8 @@ let number2 = "";
 let result = "";
 let operator = "";
 
+let justClickedOperator = false;
+
 //Possible conditions when digit button is clicked: 
 
 digitButtons.forEach(button => {
@@ -88,7 +90,7 @@ arithmeticButtons.forEach(button => {
             number1 = inputDisplay.value;
             operator = event.target.className;
             // inputDisplay.value = "";
-            console.log(`First operator clicked after entering first number. number1: ${number1}`)
+            console.log(`First operator clicked ${operator}after entering first number. number1: ${number1}`)
             
         }
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
@@ -102,20 +104,22 @@ arithmeticButtons.forEach(button => {
             number1 = result;
             operator = event.target.className;
             number2 = ""         
-            console.log(`second operator is clicked, number2 has been entered we are ready to operate. number1:${number1}, number2: ${number2}`)
+            console.log(`second operator is clicked, number2 has been entered we are ready to operate. number1:${number1}, number2: ${number2} result: ${result}`);
         }   
 
         else if (result !== "" && inputDisplay.value === ""){
             //result exists from a previous calculation user is chaining operators without typing new number.
             number1 = result;
             operator = event.target.className;
-            result = "";
+            // result = "";
+            console.log(`You clicked operator: ${operator} result is :${result}`);
         }
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
             //user clicked operator multiple time without entering number2
             //update to use the most recent operator only
             operator = event.target.className;
         }
+
     });
 });
 
