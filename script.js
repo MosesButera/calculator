@@ -72,20 +72,6 @@ function onDigitClick(event){
         //normal case: typing number2
         inputDisplay.value += clickedButton;
     }
-
-    // else if((operator !== "") && (number1 !== "") && 
-    //     (inputDisplay.value === String(number1))){
-    //     //first digit of number2 replaces empty display.
-        
-    //     inputDisplay.value = clickedButton;
-    //     // console.log(`first digit of number2 replaces empty display.`);
-    //     // console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}`);
-    // }
-    // else if((operator !== "") && (number1 !== "") && inputDisplay.value !== ""){
-    //     //Already typing number2, keep appending digits to inputDisplay.
-    //     inputDisplay.value += clickedButton;
-    //     // console.log(`Already typing number2, keep appending digits to inputDisplay. number2: ${number2}`);
-    // }
 }
 
 //Possible conditions when an operator button is clicked. (+, -, *, /)
@@ -103,6 +89,11 @@ arithmeticButtons.forEach(button => {
             // inputDisplay.value = "";
             justClickedOperator = true;  //mark state
             console.log(`First operator clicked ${operator}after entering first number. number1: ${number1}`)
+        }
+
+        else if(justClickedOperator){
+            //user clicked multiple operator just update operator
+            operator = event.target.className;
         }
 
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
@@ -128,17 +119,6 @@ arithmeticButtons.forEach(button => {
             justClickedOperator = true;  // mark state again 
             console.log(`You clicked operator: ${operator} result is :${result}`);
         }
-
-        else if(justClickedOperator){
-            //user clicked multiple operator just update operator
-            operator = event.target.className;
-        }
-        // else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
-        //     //user clicked operator multiple time without entering number2
-        //     //update to use the most recent operator only
-        //     operator = event.target.className;
-        // }
-
     });
 });
 
