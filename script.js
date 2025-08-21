@@ -103,8 +103,8 @@ arithmeticButtons.forEach(button => {
             // inputDisplay.value = "";
             justClickedOperator = true;  //mark state
             console.log(`First operator clicked ${operator}after entering first number. number1: ${number1}`)
-            
         }
+
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")){
             //Second operator is clicked, number2 has been entered and once
             //saved we are ready to operate, store result and display it.
@@ -115,7 +115,8 @@ arithmeticButtons.forEach(button => {
             inputDisplay.value = result;
             number1 = result;
             operator = event.target.className;
-            number2 = ""         
+            number2 = "" 
+            justClickedOperator = true;  //mark state again        
             console.log(`second operator is clicked, number2 has been entered we are ready to operate. number1:${number1}, number2: ${number2} result: ${result}`);
         }   
 
@@ -124,6 +125,7 @@ arithmeticButtons.forEach(button => {
             number1 = result;
             operator = event.target.className;
             // result = "";
+            justClickedOperator = true;  // mark state again 
             console.log(`You clicked operator: ${operator} result is :${result}`);
         }
         else if ((number1 !== "") && (operator !== "") && (inputDisplay.value === "")){
