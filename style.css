@@ -71,4 +71,11 @@ button{
     background-color: rgb(10, 140, 255);
 }
 
+.zero{
+    background-color: rgb(75, 75, 80);
+}
+
+.zero:hover {
+    background-color: rgb(95, 95, 100);
+}
 
