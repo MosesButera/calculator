@@ -83,3 +83,11 @@ h1{
     color: rgb(28, 28, 30);
     margin-bottom: 15px;
 }
+
+.numbers{
+    background-color: rgb(75, 75, 80);
+}
+
+.numbers:hover {
+    background-color: rgb(95, 95, 100);
+}
