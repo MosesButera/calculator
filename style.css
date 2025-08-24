@@ -99,3 +99,11 @@ h1{
 .arithmetic:hover {
     background-color: rgb(233, 193, 117);
 }
+
+.clear{
+    background-color: rgb(200, 50, 50);
+}
+
+.clear:hover {
+    background-color: rgb(220, 80, 80);
+}
