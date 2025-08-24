@@ -10,7 +10,7 @@ html, body {
   }
 
   body{
-    background-color: #d5d5d9;
+    background-color: #1e1e2f;
     font-family: "Inter", Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -80,7 +80,7 @@ button{
 }
 
 h1{
-    color: rgb(28, 28, 30);
+    color: #d5d5d9;
     margin-bottom: 15px;
 }
 
