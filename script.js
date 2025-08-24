@@ -38,7 +38,7 @@ let operator = "";
 
 let justClickedOperator = false;
 
-//Possible conditions when digit button is clicked: 
+//  1. Possible conditions when digit button is clicked: 
 
 digitButtons.forEach(button => {
     button.addEventListener("click", onDigitClick);
@@ -57,9 +57,7 @@ function onDigitClick(event){
         number1 = "";
         result = "";
         inputDisplay.value = clickedButton;
-        console.log(`user pressed digit after equals`);
-        console.log(operator);
-        console.log(`result ${result}`);
+        console.log(`user pressed digit after equals, start fresh number1`);
 
     }
 
@@ -74,7 +72,7 @@ function onDigitClick(event){
     }
 }
 
-//Possible conditions when an operator button is clicked. (+, -, *, /)
+//  2. Possible conditions when an operator button is clicked. (+, -, *, /)
 //onOperatorClick()
 
 const arithmeticButtons = document.querySelectorAll(".arithmetic"); 
@@ -122,7 +120,7 @@ arithmeticButtons.forEach(button => {
     });
 });
 
-// When equals is clicked. OnEqualsClick ()
+//  3. When equals is clicked. OnEqualsClick ()
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", onEqualsClick);
@@ -163,5 +161,12 @@ clear.addEventListener("click", function(){
     console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}, result: ${result}, inputDisplay: ${inputDisplay.value}`);
 });
 
+//  4. When "." is clicked. onDotClick()
+
+const decimal = document.querySelector("decimal");
+decimal.addEventListener("click", onDotClick);
+
+function onDotClick(){
 
 
+}
