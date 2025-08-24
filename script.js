@@ -47,6 +47,11 @@ digitButtons.forEach(button => {
 function onDigitClick(event){
     const clickedButton = event.target.textContent;
 
+    // if(inputDisplay.value === "ERROR"){
+    //     inputDisplay.value = "";
+    //     inputDisplay.value += clickedButton;
+    // }
+
     if (operator === "" && result === ""){
         //building number1 from scratch. 
         inputDisplay.value += clickedButton;
@@ -58,7 +63,6 @@ function onDigitClick(event){
         result = "";
         inputDisplay.value = clickedButton;
         console.log(`user pressed digit after equals, start fresh number1`);
-
     }
 
     else if (justClickedOperator){
@@ -163,10 +167,21 @@ clear.addEventListener("click", function(){
 
 //  4. When "." is clicked. onDotClick()
 
-const decimal = document.querySelector("decimal");
+const decimal = document.querySelector(".decimal");
 decimal.addEventListener("click", onDotClick);
+const displayContent = inputDisplay.value;
 
 function onDotClick(){
-
-
-}
+    if (displayContent.includes(".") || inputDisplay.value === "ERROR" || inputDisplay.value === undefined){
+        console.log("contains error");
+        return;
+    }
+    else if(inputDisplay.value === "" || inputDisplay.value === "0" ){
+        inputDisplay.value = "0."
+        console.log("contains 0")
+    }
+    else{
+        inputDisplay.value += ".";
+        console.log("append decimal")
+    }
+};
