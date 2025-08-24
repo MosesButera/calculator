@@ -43,3 +43,11 @@ html, body {
     color: #00ffcc;
     border: none;
 }
+
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+}
