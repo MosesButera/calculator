@@ -107,3 +107,11 @@ h1{
 .clear:hover {
     background-color: rgb(220, 80, 80);
 }
+
+.regular{
+    background-color: #6d6d6d;
+}
+
+.regular:hover {
+    background-color: rgb(95, 95, 100);
+}
