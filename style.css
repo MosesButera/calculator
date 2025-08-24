@@ -45,6 +45,10 @@ html, body {
     font-size: 1.6rem;
 }
 
+#numb1::placeholder{
+    color: #00ffcc;
+}
+
 button{
     width: 80px;
     height: 80px;
