@@ -169,19 +169,23 @@ clear.addEventListener("click", function(){
 
 const decimal = document.querySelector(".decimal");
 decimal.addEventListener("click", onDotClick);
-const displayContent = inputDisplay.value;
 
 function onDotClick(){
-    if (displayContent.includes(".") || inputDisplay.value === "ERROR" || inputDisplay.value === undefined){
+    const displayContent = inputDisplay.value;
+
+    if (inputDisplay.value === "." ){
+        inputDisplay.value = "0.";
+    }
+    else if (displayContent.includes(".") || inputDisplay.value === "ERROR" || inputDisplay.value === undefined){
         console.log("contains error");
         return;
     }
-    else if(inputDisplay.value === "" || inputDisplay.value === "0" ){
-        inputDisplay.value = "0."
-        console.log("contains 0")
+    else if(inputDisplay.value === "" || inputDisplay.value === "0"){
+        inputDisplay.value = "0.";
+        console.log("contains 0");
     }
     else{
         inputDisplay.value += ".";
-        console.log("append decimal")
+        console.log("append decimal");
     }
 };
