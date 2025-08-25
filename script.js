@@ -1,17 +1,25 @@
+function hasDecimal(x){
+    return typeof x === 'number' && !Number.isInteger(x);
+}
+
 function add(x, y) {
-    return (x + y).toFixed(2);
+    z = x + y; 
+    return hasDecimal(z) ? (x + y).toFixed(2) : z ; 
 }
 
 function subtract(x, y) {
-    return (x - y).toFixed(2);
+    z = x - y; 
+    return hasDecimal(z) ? (x - y).toFixed(2) : z ;
 }
 
 function multiply(x, y) {
-    return (x * y).toFixed(2);
+    z = x * y; 
+    return hasDecimal(z) ? (x * y).toFixed(2) : z ;
 }
 
 function divide(x, y) {
-    return (x / y).toFixed(2);
+    z = x / y; 
+    return hasDecimal(z) ? (x / y).toFixed(2) : z ;
 }
 
 function operate(operator, number1, number2) {
