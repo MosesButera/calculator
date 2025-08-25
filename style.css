@@ -100,6 +100,7 @@ h1{
 
 .arithmetic{
     background-color: rgb(255, 165, 0);
+    font-size: 1.8rem;
 }
 
 .arithmetic:hover {
