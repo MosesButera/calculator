@@ -189,3 +189,19 @@ function onDotClick(){
         console.log("append decimal");
     }
 };
+
+//5. When (DEL) button is clicked. OnBackspaceClick()
+
+const backSpace = document.querySelector(".backSpace");
+backSpace.addEventListener("click", onBackspaceClick);
+
+function onBackspaceClick(){
+    const displayValue = inputDisplay.value;
+    if (inputDisplay.value === "ERROR"){
+        inputDisplay.value = "0";
+    }
+    else{
+        inputDisplay.value = displayValue.slice(0, -1); //Removes the last character
+    }
+   
+};
