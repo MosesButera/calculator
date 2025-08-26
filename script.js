@@ -331,3 +331,40 @@ function onOperatorPressed(event) {
         }
     }
 };        
+
+
+//  c. When equals KEY is PRESSED on keyboard in the input tag. OnEqualsPRESS ()
+
+// const equals = document.querySelector(".equals");
+inputDisplay.addEventListener("keydown", OnEqualsPress);
+
+function OnEqualsPress(event) {
+    const pressedKey2 = event.key;
+    const allowedResultKeys = ["=", "Enter"];
+
+    if (allowedResultKeys.includes(pressedKey2)){
+
+        if (inputDisplay.value === "0") {
+            //Division by zero
+            inputDisplay.value = "ERROR";
+            return; //exit immediately, skip the rest of the function.
+        }
+    
+        else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")) {
+            number2 = inputDisplay.value;
+            let number1Int = parseFloat(number1);
+            let number2Int = parseFloat(number2);
+    
+            if (operator === "divide arithmetic" && number2Int === 0) {
+                inputDisplay.value = "ERROR";
+                return; //exit immediately, skip the rest of the function.
+            }
+            result = operate(operator, number1Int, number2Int);
+            console.log(`number1: ${number1}, number2: ${number2}, operator: ${operator}, result: ${result}, inputDisplay: ${inputDisplay.value}`);
+            inputDisplay.value = result;
+            number1 = result;
+            number2 = "";
+            operator = "";
+        }
+    }
+};
