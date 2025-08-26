@@ -4,7 +4,7 @@ function hasDecimal(x){
 
 function add(x, y) {
     z = x + y; 
-    return hasDecimal(z) ? (x + y).toFixed(2) : z ; 
+    return hasDecimal(z) ? (x + y).toFixed(2) : z ;  //only round to the nearest second decimal if z has decimal values
 }
 
 function subtract(x, y) {
@@ -23,14 +23,20 @@ function divide(x, y) {
 }
 
 function operate(operator, number1, number2) {
+    console.log("Operator received:", operator, "Type:", typeof operator);
+
     switch (operator) {
-        case "add arithmetic":
-            return add(number1, number2);
+        case "add arithmetic":    //if this matches...
+        case "+":                 //OR this matches...
+            return add(number1, number2);     //Execute this code. 
         case "subtract arithmetic":
+        case "-":
             return subtract(number1, number2);
         case "multiply arithmetic":
+        case "*":
             return multiply(number1, number2);
-        case "divide arithmetic":
+        case "divide arithmetic": 
+        case "/":
             return divide(number1, number2);
         default:
             return "Unknown operator";
@@ -54,11 +60,6 @@ digitButtons.forEach(button => {
 
 function onDigitClick(event) {
     const clickedButton = event.target.textContent;
-
-    // if(inputDisplay.value === "ERROR"){
-    //     inputDisplay.value = "";
-    //     inputDisplay.value += clickedButton;
-    // }
 
     if (operator === "" && result === "") {
         //building number1 from scratch. 
@@ -233,3 +234,47 @@ function onChangeSignClick() {
         inputDisplay.value = displayNumber2;
     }
 };
+
+
+//7. Add keyboard accessability. 
+
+//  a. Possible conditions when digit KEY is PRESSED on keyboard in 
+// the input tag: 
+
+let justPressedOperator = false;
+
+inputDisplay.addEventListener("keydown", onDigitPressed);
+
+function onDigitPressed(event) {
+    const pressedKey = event.key;
+    console.log(`Pressed KEY: ${pressedKey}`);
+    const allowedDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+    if (allowedDigits.includes(pressedKey)){
+
+        if (operator === "" && result === "") {
+            //building number1 from scratch. 
+            inputDisplay.value += pressedKey;
+            console.log(`user building number1 from scratch key pressed: ${inputDisplay.value}`);
+        }
+        else if (operator === "" && result !== "") {
+            //user pressed digit after equals, start fresh number1.
+            number1 = "";
+            result = "";
+            inputDisplay.value = pressedKey;
+            console.log(`user pressed KEY after equals, start fresh number1`);
+        }
+    
+        else if (justPressedOperator) {
+            //overwrite display because operator was just clicked
+            inputDisplay.value = pressedKey;
+            justPressedOperator = false; //reset flag
+            console.log("overwrite display because operator was just clicked or PRESSED");
+        }
+
+        else {
+            //normal case: typing number2
+            inputDisplay.value += pressedKey;
+        }
+    }
+}
