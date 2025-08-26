@@ -389,3 +389,32 @@ function OnBackspacePress(event) {
         }
     }
 };
+
+
+//  e. When "." KEY is PRESSED. onDotPressed()
+
+inputDisplay.addEventListener("keydown", onDotPressed);
+
+function onDotPressed(event) {
+    const pressedKey4 = event.key;
+    const displayContent = inputDisplay.value;
+
+    if (pressedKey4 === "."){
+
+        if (inputDisplay.value === ".") {
+            inputDisplay.value = "0.";
+        }
+        else if (displayContent.includes(".") || inputDisplay.value === "ERROR" || inputDisplay.value === undefined) {
+            console.log("contains error");
+            return;
+        }
+        else if (inputDisplay.value === "" || inputDisplay.value === "0") {
+            inputDisplay.value = "0.";
+            console.log("contains 0");
+        }
+        else {
+            inputDisplay.value += ".";
+            console.log("append decimal");
+        }
+    }
+};
