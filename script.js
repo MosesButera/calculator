@@ -335,7 +335,6 @@ function onOperatorPressed(event) {
 
 //  c. When equals KEY is PRESSED on keyboard in the input tag. OnEqualsPRESS ()
 
-// const equals = document.querySelector(".equals");
 inputDisplay.addEventListener("keydown", OnEqualsPress);
 
 function OnEqualsPress(event) {
@@ -365,6 +364,28 @@ function OnEqualsPress(event) {
             number1 = result;
             number2 = "";
             operator = "";
+        }
+    }
+};
+
+
+//d. When (DEL)/(Backspace) KEY is PRESSED inside input tag. OnBackspacePress()
+
+
+inputDisplay.addEventListener("keydown", OnBackspacePress);
+
+function OnBackspacePress(event) {
+    const pressedKey3 = event.key;
+    console.log("You pressed: ", pressedKey3);
+    const allowedDelKeys = ["Backspace", "Delete"];
+    const displayValue1 = inputDisplay.value;
+
+    if (allowedDelKeys.includes(pressedKey3)){
+        if (inputDisplay.value === "ERROR") {
+            inputDisplay.value = "0";
+        }
+        else {
+            inputDisplay.value = displayValue1.slice(0, -1); //Removes the last character
         }
     }
 };
