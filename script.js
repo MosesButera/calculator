@@ -278,3 +278,56 @@ function onDigitPressed(event) {
         }
     }
 }
+
+
+//  b. Possible conditions when an operator KEY is PRESSED. (+, -, *, /) on keyboard in 
+// the input tag. onOperatorClick()
+
+inputDisplay.addEventListener("keydown", onOperatorPressed);
+
+function onOperatorPressed(event) {
+    const pressedKey1 = event.key;
+    const allowedOperators = ["+", "-", "*", "/"];
+
+    if (allowedOperators.includes(pressedKey1)){
+
+        if (number1 === "" && result === "") {
+            //First operator clicked after entering first number
+            number1 = inputDisplay.value;
+            operator = event.key;
+            // inputDisplay.value = "";
+            justPressedOperator = true;  //mark state
+            console.log(`First operator KEY PRESSED ${operator}after entering first number. number1: ${number1}`)
+        }
+
+        else if (justPressedOperator) {
+            //user clicked multiple operator just update operator
+            operator = event.key;
+            console.log("User clicked multiple operator", operator);
+        }
+
+        else if ((number1 !== "") && (operator !== "") && (inputDisplay.value !== "")) {
+            //Second operator is clicked, number2 has been entered and once
+            //saved we are ready to operate, store result and display it.
+            number2 = inputDisplay.value;
+            let number1Int = parseFloat(number1);
+            let number2Int = parseFloat(number2);
+            result = operate(operator, number1Int, number2Int);
+            inputDisplay.value = result;
+            number1 = result;
+            operator = event.key;
+            number2 = "";
+            justPressedOperator = true;  //mark state again        
+            console.log(`Second OPERATOR KEY is PRESSED, number2 has been entered we are ready to operate. number1:${number1}, number2: ${number2} result: ${result}`);
+        }
+
+        else if (result !== "" && inputDisplay.value === "") {
+            //result exists from a previous calculation user is chaining operators without typing new number.
+            number1 = result;
+            operator = event.key;
+            // result = "";
+            justPressedOperator = true;  // mark state again 
+            console.log(`You PRESSED OPERATOR KEY: ${operator} result is :${result}`);
+        }
+    }
+};        
